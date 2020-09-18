@@ -4,6 +4,7 @@ import random
 print('WELCOME TO THE TURTLE RACE')
 print('CHOOSE YOUR COLOUR TURTLE')
 print('PRESS SPACEBAR TO START THE RACE')
+print('PRESS UP ARROWKEY TO EXIT')
 
 #screen_graphics
 s=turtle.Screen()
@@ -54,7 +55,6 @@ a=turtle.Turtle()
 a.shape('turtle')
 a.penup()
 a.setpos(-200,-200)
-a.pendown()
 a.color('red')
 a.setheading(90)
 
@@ -63,7 +63,6 @@ b=turtle.Turtle()
 b.shape('turtle')
 b.penup()
 b.setpos(-100,-200)
-b.pendown()
 b.color('yellow')
 b.setheading(90)
 
@@ -72,7 +71,6 @@ e=turtle.Turtle()
 e.shape('turtle')
 e.penup()
 e.setpos(0,-200)
-e.pendown()
 e.color('green')
 e.setheading(90)
 
@@ -81,7 +79,6 @@ c=turtle.Turtle()
 c.shape('turtle')
 c.penup()
 c.setpos(100,-200)
-c.pendown()
 c.color('magenta')
 c.setheading(90)
 
@@ -90,9 +87,16 @@ d=turtle.Turtle()
 d.shape('turtle')
 d.penup()
 d.setpos(200,-200)
-d.pendown()
 d.color('blue')
 d.setheading(90)
+
+#restarting
+def restart():
+    a.setpos(-200,-200)
+    b.setpos(-100,-200)
+    c.setpos(0,-200)
+    d.setpos(100,-200)
+    e.setpos(200,-200)
 
 #moving_the_turtles
 def up():
@@ -110,12 +114,15 @@ def up():
         d_dist+=q
         a.forward(x)
         b.forward(y)
-        e.forward(z)
-        c.forward(w)
-        d.forward(q)
-    #winner_of_the_race
-    print('AND THE WINNERS ARE :-')
+        c.forward(z)
+        d.forward(w)
+        e.forward(q)
     Distance=[a_dist,b_dist,e_dist,c_dist,d_dist]
+    winners(Distance)
+
+#winner_of_the_race
+def winners(Distance):
+    print('AND THE WINNERS ARE :-')
     for I in range(1,6):
         L=Distance.index(max(Distance))
         if L==0:
@@ -129,14 +136,14 @@ def up():
         elif L==4:
             print(I,'POSITION- BLUE TURTLE')
         Distance[L]=0
+    restart()
+
+def esc():
+    raise SystemExit
+
 turtle.listen()
 turtle.onkey(up,"space")
-turtle.hideturtle()
-
-    
-      
+turtle.onkey(esc,"Up")
+turtle.mainloop()
 
 
-
-
-    
