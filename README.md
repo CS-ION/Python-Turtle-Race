@@ -20,7 +20,3 @@ Watch the turtles move forward randomly until one of them reaches the finish lin
 The winners of the race will be displayed in the console.
 
 Press the up arrow key to exit the game.
-
-## Dependencies
-Python 3.x 
-Turtle module
