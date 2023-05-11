@@ -22,5 +22,5 @@ The winners of the race will be displayed in the console.
 Press the up arrow key to exit the game.
 
 ## Dependencies
-Python 3.x
+Python 3.x 
 Turtle module
